@@ -1,0 +1,56 @@
+cloud-init and key pair error openstack
+Posted on September 15, 2016 by Gopalakrishnan S	0 Comments
+Recently we have received the following errors in OpenStack console and  The ssh key could not be injected and the cloud-init cannot contact the server.
+
+[ 43.395174] vdb: unknown partition table
+[ 113.888499] cloud-init[774]: 2016-08-29 20:01:03,415 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [50/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 164.924980] cloud-init[774]: 2016-08-29 20:01:54,454 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [101/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 182.945299] cloud-init[774]: 2016-08-29 20:02:12,474 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [119/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 183.947488] cloud-init[774]: 2016-08-29 20:02:13,475 - DataSourceEc2.py[CRITICAL]: Giving up on md from ['http://169.254.169.254/2009-04-04/meta-data/instance-id'] after 120 seconds
+[ 183.950442] cloud-init[774]: 2016-08-29 20:02:13,479 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [0/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 184.953521] cloud-init[774]: 2016-08-29 20:02:14,482 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [1/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 185.956850] cloud-init[774]: 2016-08-29 20:02:15,486 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [2/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 186.959196] cloud-init[774]: 2016-08-29 20:02:16,488 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [3/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 187.962298] cloud-init[774]: 2016-08-29 20:02:17,491 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [4/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 188.965372] cloud-init[774]: 2016-08-29 20:02:18,494 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [5/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 190.970043] cloud-init[774]: 2016-08-29 20:02:20,499 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [7/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 192.974139] cloud-init[774]: 2016-08-29 20:02:22,503 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [9/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 194.978289] cloud-init[774]: 2016-08-29 20:02:24,507 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [11/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 196.982307] cloud-init[774]: 2016-08-29 20:02:26,511 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [13/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 198.986454] cloud-init[774]: 2016-08-29 20:02:28,515 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [15/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 201.991528] cloud-init[774]: 2016-08-29 20:02:31,520 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [18/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 204.996829] cloud-init[774]: 2016-08-29 20:02:34,526 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [21/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 208.001978] cloud-init[774]: 2016-08-29 20:02:37,531 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [24/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 211.007219] cloud-init[774]: 2016-08-29 20:02:40,536 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [27/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 214.012246] cloud-init[774]: 2016-08-29 20:02:43,541 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [30/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 218.018210] cloud-init[774]: 2016-08-29 20:02:47,547 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [34/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 222.024298] cloud-init[774]: 2016-08-29 20:02:51,553 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [38/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 226.030538] cloud-init[774]: 2016-08-29 20:02:55,559 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [42/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 230.036614] cloud-init[774]: 2016-08-29 20:02:59,566 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [46/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 234.042767] cloud-init[774]: 2016-08-29 20:03:03,572 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [50/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 239.050140] cloud-init[774]: 2016-08-29 20:03:08,579 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [55/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 244.058137] cloud-init[774]: 2016-08-29 20:03:13,587 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [60/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 249.065886] cloud-init[774]: 2016-08-29 20:03:18,595 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [65/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 254.073089] cloud-init[774]: 2016-08-29 20:03:23,602 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [70/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 259.080255] cloud-init[774]: 2016-08-29 20:03:28,609 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [75/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 265.088215] cloud-init[774]: 2016-08-29 20:03:34,617 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [81/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 271.096308] cloud-init[774]: 2016-08-29 20:03:40,625 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [87/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 277.104435] cloud-init[774]: 2016-08-29 20:03:46,633 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [93/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 283.112577] cloud-init[774]: 2016-08-29 20:03:52,642 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [99/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 289.120693] cloud-init[774]: 2016-08-29 20:03:58,650 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [105/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 296.126349] cloud-init[774]: 2016-08-29 20:04:05,655 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [112/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 303.135384] cloud-init[774]: 2016-08-29 20:04:12,664 - url_helper.py[WARNING]: Calling 'http://10.0.0.2//latest/meta-data/instance-id' failed [119/120s]: unexpected error ['NoneType' object has no attribute 'status_code']
+[ 310.144137] cloud-init[774]: 2016-08-29 20:04:19,672 - DataSourceCloudStack.py[CRITICAL]: Giving up on waiting for the metadata from ['http://10.0.0.2//latest/meta-data/instance-id'] after 126 seconds
+[ 310.794152] cloud-init[9076]: Cloud-init v. 0.7.5 running 'modules:config' at Mon, 29 Aug 2016 20:04:20 +0000. Up 310.73 seconds.
+[ 311.130418] cloud-init[9096]: Cloud-init v. 0.7.5 running 'modules:final' at Mon, 29 Aug 2016 20:04:20 +0000. Up 311.07 seconds.
+ci-info: no authorized ssh keys fingerprints found for user centos.
+[ 311.154977] cloud-init[9096]: ci-info: no authorized ssh keys fingerprints found for user centos.
+ec2:
+As per the openstack docs ¡°Key pairs are SSH credentials that are injected into an instance when it starts. You can create or import key pairs. You must provide at least one key pair for each project.¡±
+
+Solution:
+
+Finally this issue is fixed after I added the following settings in /etc/nova/nova.conf on compute host and restarted services.
+
+"force_config_drive=true"
+Key pair is working fine for new virtual machines now.

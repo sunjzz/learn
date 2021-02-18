@@ -1,0 +1,27 @@
+The steps I use in my image are:
+
+Install all available updates
+
+yum update -y
+Install the EPEL helper package
+
+yum install -y epel-release
+Install cloud-init and dracut-modules-growroot
+
+yum install -y cloud-init dracut-modules-growroot
+This has to be done after installing epel-release, because otherwise YUM won't look in the EPEL repository, where dracut-modules-growroot is available.
+Cloud Init is useful in running startup scripts, but it also has an enabled-by-default module (great documentation, right?) that resizes the root filesystem (resize2fs-like) if its block device is bigger.
+You can avoid installing it, but then you'll have to resize the filesystem on your own (see my second ugly script).
+
+Rebuild all initramfs images.
+
+rpm -qa kernel | sed 's/^kernel-//'  | xargs -I {} dracut -f /boot/initramfs-{}.img {}
+This is very important. Without rebuilding the initramfs images, the module won't be available and nothing will get done.
+Also note that I'm explicitly rebuilding an image for every kernel package installed - this is because we might be running kernel A, and just installed newer kernel B with yum update -y, so if I only used dracut -f only kernel A's image will be rebuilt, and next time we'll boot from kernel B's image, that doesn't have the module.
+
+The full script:
+
+yum update -y
+yum install -y epel-release
+yum install -y cloud-init dracut-modules-growroot
+rpm -qa kernel | sed 's/^kernel-//'  | xargs -I {} dracut -f /boot/initramfs-{}.img {}
