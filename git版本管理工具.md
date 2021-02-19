@@ -43,6 +43,12 @@
 
 - git checkout dev 	# 切换到dev分支
 
+  ```
+git checkout -b dev # 创建dev分支并切换到dev分支
+  ```
+
+  
+
   合并分支：
 
   git checkout master
@@ -52,11 +58,11 @@
   git merge bug 	# 合并bug分支到master分支
 
   git branch -d bug 	# 删除bug分支 
-
+  
   git remote add origin https://github.com/..... 	# 添加远程git仓库地址别名
-
+  
   git push -u origin master		# 本地master分支推送至origin
-
+  
   git clone  
   
   git pull origin master 这一句等同于：
@@ -73,3 +79,18 @@
   git log --graph 
   
   git log --graph --pretty=format:"%h %s"
+  
+  git rebase
+  
+  git pull 
+  
+  ```
+  git fetch origin dev
+  git rebase origin/dev
+  ```
+  
+  
+  
+  git tag -a v1 -m "第一版"
+  
+  
