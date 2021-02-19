@@ -58,3 +58,18 @@
   git push -u origin master		# 本地master分支推送至origin
 
   git clone  
+  
+  git pull origin master 这一句等同于：
+  
+  ```
+  git fetch origin master
+  git merge origin/master
+  ```
+  
+  git rebase -i HEAD~3 合并最近的3次提交记录
+  
+  git log 
+  
+  git log --graph 
+  
+  git log --graph --pretty=format:"%h %s"
