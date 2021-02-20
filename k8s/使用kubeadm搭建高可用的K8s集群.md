@@ -515,8 +515,3 @@ $ kubectl get pod,svc
 访问地址：http://NodeIP:Port  
 
 
-
-
-add some thing!
-
-add some thing!
