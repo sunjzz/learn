@@ -9,7 +9,19 @@
    
    sudo pacman -S linux59-headers linux59-virtualbox-host-modules virtualbox-host-dkms virtualbox
    
-2. 安装微信，QQ
+2. 安装Vmware workstation
+
+   安装VirtualBox时已经安装了linux59-headers模块
+
+   sudo pacman -S vmware-workstation
+
+   sudo modprobe -a vmw_vmci vmmon
+
+   sudo systemctl enable vmware-networks.service  vmware-usbarbitrator.service 
+
+   sudo systemctl start  vmware-networks.service  vmware-usbarbitrator.service 
+
+3. 安装微信，QQ
 
    sudo pacman -S base-devel yay
 
@@ -21,7 +33,7 @@
 
    注意：如果缺失win字体，中文显示会异常，可以拷贝win下面的simsun.ttf,simsun.ttc字体至~/.deepinwine/Spark-WeChat/drive_c/windows/Fonts/
 
-3. win字体安装
+4. win字体安装
 
    最好是win下面的全部字体都拷贝出来一份
 
@@ -31,7 +43,7 @@
 
    sudo fc-cache -fv
 
-4. 安装WPS
+5. 安装WPS
 
    yay -S wps-office wps-office-mui-zh-cn ttf-wps-fonts
 
@@ -45,7 +57,7 @@
    输入数字 (默认=1): 
    ```
 
-5. 安装Pycharm社区版
+6. 安装Pycharm社区版
 
    sudo pacman -S pycharm-community-edition
 
